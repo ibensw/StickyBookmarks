@@ -65,7 +65,7 @@ class StickyBookmarks(sublime_plugin.WindowCommand):
             return
         bmarks = {}
         regs = view.get_regions("bookmarks")
-        if len(regs) == 0:
+        if len(regs) == 0 and filename in self.sbmarks:
             del self.sbmarks[filename]
         else:
             for r in regs:
